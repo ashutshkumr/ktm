@@ -1,0 +1,20 @@
+name: client-server
+nodes:
+  - name: client
+    image: ubuntu:22.04
+    cmd:
+      - sleep
+      - infinity
+  - name: server
+    image: ubuntu:22.04
+    cmd:
+      - sleep
+      - infinity
+links:
+  - name: link
+    first:
+      name: eth0
+      node: client
+    second:
+      name: eth0
+      node: server
