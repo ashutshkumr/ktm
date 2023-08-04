@@ -1,4 +1,4 @@
-package topology
+package api
 
 type Topology struct {
 	Name  string `yaml:"name"`

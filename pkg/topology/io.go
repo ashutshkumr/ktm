@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/ashutshkumr/ktm/pkg/api"
 	"gopkg.in/yaml.v3"
 )
 
@@ -15,11 +16,12 @@ func NewFromFile(fileName string) error {
 		return fmt.Errorf("could not read topology file: %v", err)
 	}
 
-	t := Topology{}
+	t := api.Topology{}
 	log.Printf("Parsing topology ...\n%s\n", b)
 	if err := yaml.Unmarshal(b, &t); err != nil {
 		return fmt.Errorf("could not unmarshal topology file: %v", err)
 	}
+	log.Println("Successfully parsed topology !")
 
 	return New(&t)
 }

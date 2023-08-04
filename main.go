@@ -16,7 +16,9 @@ func main() {
 	if *cleanupPtr {
 		printUsage = false
 
-		log.Println("Cleaning up any active topology ...")
+		if err := topology.Cleanup(); err != nil {
+			log.Fatalf("Failed cleaning up: %v\n", err)
+		}
 	}
 
 	if *topoPtr != "" {
